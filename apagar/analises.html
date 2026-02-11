@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DataInsight • Análises</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topbar" role="banner">
+    <div class="container topbar__inner">
+      <a class="brand" href="home.html" aria-label="DataInsight - Home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        DataInsight
+      </a>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="home.html">Home</a>
+        <a href="dados.html">Dados</a>
+        <a href="analises.html" aria-current="page">Análises</a>
+        <a href="graficos.html">Gráficos</a>
+        <a href="relatorios.html">Relatórios</a>
+        <a href="config.html">Configurações</a>
+      </nav>
+
+      <div class="actions">
+        <a class="btn btn--ghost" href="dados.html">Ver dados</a>
+        <button class="btn btn--icon" type="button" aria-label="Perfil (placeholder)">👤</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" class="page" role="main">
+    <div class="container">
+      <header class="page__header">
+        <div class="breadcrumb">Home &gt; Análises</div>
+        <h1 class="h1">Análises estatísticas</h1>
+        <p class="p">Medidas de tendência central e dispersão (placeholder).</p>
+      </header>
+
+      <section class="card" aria-label="Ações">
+        <div style="display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items:center;">
+          <p class="p">Clique em “Recalcular” para atualizar com os dados atuais (quando tiver JS).</p>
+          <div style="display:flex; gap: 12px; flex-wrap: wrap;">
+            <button class="btn btn--primary" type="button">Recalcular</button>
+            <button class="btn" type="button">Exportar resumo</button>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Métricas" style="margin-top:24px;">
+        <div class="grid grid--2">
+          <article class="card">
+            <div class="card__meta">Média</div>
+            <div class="card__value">12,5</div>
+            <div class="card__desc">Valor médio do conjunto.</div>
+          </article>
+          <article class="card">
+            <div class="card__meta">Mediana</div>
+            <div class="card__value">10</div>
+            <div class="card__desc">Valor central (50%).</div>
+          </article>
+          <article class="card">
+            <div class="card__meta">Moda</div>
+            <div class="card__value">8</div>
+            <div class="card__desc">Valor mais frequente.</div>
+          </article>
+          <article class="card">
+            <div class="card__meta">Desvio padrão</div>
+            <div class="card__value">3,2</div>
+            <div class="card__desc">Dispersão em torno da média.</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card" aria-label="Interpretação" style="margin-top:24px;">
+        <h2 class="h2">Interpretação</h2>
+        <p class="p" style="margin-top:10px;">
+          Em linguagem simples: “Os valores maiores estão puxando a média para cima.”
+        </p>
+        <p class="p" style="margin-top:8px;">
+          Dica de leitura: se a média for muito diferente da mediana, pode haver assimetria.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <span>© DataInsight</span>
+      <span>Texto didático e acessível como padrão do projeto.</span>
+    </div>
+  </footer>
+</body>
+</html>

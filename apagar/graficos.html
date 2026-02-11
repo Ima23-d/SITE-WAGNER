@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DataInsight • Gráficos</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topbar" role="banner">
+    <div class="container topbar__inner">
+      <a class="brand" href="home.html">
+        <span class="brand__mark" aria-hidden="true"></span>
+        DataInsight
+      </a>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="home.html">Home</a>
+        <a href="dados.html">Dados</a>
+        <a href="analises.html">Análises</a>
+        <a href="graficos.html" aria-current="page">Gráficos</a>
+        <a href="relatorios.html">Relatórios</a>
+        <a href="config.html">Configurações</a>
+      </nav>
+
+      <div class="actions">
+        <button class="btn btn--icon" type="button" aria-label="Perfil (placeholder)">👤</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" class="page" role="main">
+    <div class="container">
+      <header class="page__header">
+        <div class="breadcrumb">Home &gt; Gráficos</div>
+        <h1 class="h1">Gráficos</h1>
+        <p class="p">Escolha visualizações e aplique filtros (placeholder).</p>
+      </header>
+
+      <section class="card" aria-label="Filtros">
+        <h2 class="h2">Filtros</h2>
+
+        <div class="grid grid--3" style="margin-top:16px;">
+          <div class="field">
+            <label for="tipo">Tipo de gráfico</label>
+            <select class="select" id="tipo">
+              <option>Histograma</option>
+              <option>Barras</option>
+              <option>Linha</option>
+              <option>Pizza (se fizer sentido)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="periodo">Período</label>
+            <select class="select" id="periodo">
+              <option>Todos</option>
+              <option>Últimos 7 dias</option>
+              <option>Últimos 30 dias</option>
+              <option>Personalizado</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="categoria">Categoria</label>
+            <select class="select" id="categoria">
+              <option>Geral</option>
+              <option>Exemplo A</option>
+              <option>Exemplo B</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+          <button class="btn btn--primary" type="button">Aplicar</button>
+          <button class="btn" type="button">Limpar</button>
+        </div>
+      </section>
+
+      <section class="card" aria-label="Área do gráfico" style="margin-top:24px;">
+        <h2 class="h2">Visualização</h2>
+        <div class="chart" role="img" aria-label="Área reservada para gráfico">Área do gráfico</div>
+
+        <h3 class="h3" style="margin-top:16px;">Descrição do gráfico</h3>
+        <p class="p" style="margin-top:8px;">
+          Texto acessível: “A maior concentração de valores está entre 8 e 12.” (placeholder)
+        </p>
+        <p class="p" style="margin-top:8px;">
+          Importante: não depender apenas de vermelho/verde para indicar resultados.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <span>© DataInsight</span>
+      <span>Todos os gráficos terão descrição textual para acessibilidade.</span>
+    </div>
+  </footer>
+</body>
+</html>

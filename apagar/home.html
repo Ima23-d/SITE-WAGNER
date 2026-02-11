@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DataInsight • Home</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topbar" role="banner">
+    <div class="container topbar__inner">
+      <a class="brand" href="home.html" aria-label="DataInsight - Home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        DataInsight
+      </a>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="home.html" aria-current="page">Home</a>
+        <a href="dados.html">Dados</a>
+        <a href="analises.html">Análises</a>
+        <a href="graficos.html">Gráficos</a>
+        <a href="relatorios.html">Relatórios</a>
+        <a href="config.html">Configurações</a>
+      </nav>
+
+      <div class="actions">
+        <a class="btn btn--ghost" href="config.html" aria-label="Abrir configurações">⚙️</a>
+        <button class="btn btn--icon" type="button" aria-label="Perfil (placeholder)">👤</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" class="page" role="main">
+    <div class="container">
+      <header class="page__header">
+        <div class="breadcrumb" aria-label="Você está em">Home</div>
+        <h1 class="h1">Visão geral</h1>
+        <p class="p">Métricas principais e um resumo visual dos seus dados.</p>
+      </header>
+
+      <section class="card" aria-label="Busca">
+        <form style="display:flex; gap: 12px; flex-wrap: wrap; align-items:center;">
+          <label for="busca" style="min-width: 120px;">Buscar</label>
+          <input class="input" id="busca" type="search" placeholder="Buscar por dataset, coluna, tag..." />
+          <button class="btn btn--primary" type="button">Pesquisar</button>
+        </form>
+      </section>
+
+      <section aria-label="Métricas" style="margin-top: 24px;">
+        <div class="grid grid--4">
+          <article class="card">
+            <div class="card__meta">Média</div>
+            <div class="card__value">12,5</div>
+            <div class="card__desc">Baseado em 30 registros</div>
+          </article>
+          <article class="card">
+            <div class="card__meta">Mediana</div>
+            <div class="card__value">10</div>
+            <div class="card__desc">Valor central dos dados</div>
+          </article>
+          <article class="card">
+            <div class="card__meta">Moda</div>
+            <div class="card__value">8</div>
+            <div class="card__desc">Valor que mais se repete</div>
+          </article>
+          <article class="card">
+            <div class="card__meta">Desvio padrão</div>
+            <div class="card__value">3,2</div>
+            <div class="card__desc">Dispersão em torno da média</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card" aria-label="Gráfico principal" style="margin-top: 24px;">
+        <h2 class="h2">Gráfico principal</h2>
+        <p class="p" style="margin-top: 6px;">Visualização rápida (placeholder).</p>
+        <div class="chart" role="img" aria-label="Área reservada para gráfico">Área do gráfico</div>
+        <p class="p" style="margin-top: 10px;">
+          Descrição acessível do gráfico: “Os valores variam entre X e Y, com tendência de aumento no final.”
+        </p>
+      </section>
+
+      <section class="card" aria-label="Insights" style="margin-top: 24px;">
+        <h2 class="h2">Insight automático</h2>
+        <p class="p" style="margin-top: 8px;">
+          “Os valores maiores estão puxando a média para cima.” (placeholder)
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <span>© DataInsight</span>
+      <span>Dica: use Tab para navegar e Enter para ativar botões.</span>
+    </div>
+  </footer>
+</body>
+</html>

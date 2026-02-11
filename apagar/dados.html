@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DataInsight • Dados</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topbar" role="banner">
+    <div class="container topbar__inner">
+      <a class="brand" href="home.html" aria-label="DataInsight - Home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        DataInsight
+      </a>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="home.html">Home</a>
+        <a href="dados.html" aria-current="page">Dados</a>
+        <a href="analises.html">Análises</a>
+        <a href="graficos.html">Gráficos</a>
+        <a href="relatorios.html">Relatórios</a>
+        <a href="config.html">Configurações</a>
+      </nav>
+
+      <div class="actions">
+        <a class="btn btn--ghost" href="home.html" aria-label="Voltar para home">←</a>
+        <button class="btn btn--icon" type="button" aria-label="Perfil (placeholder)">👤</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" class="page" role="main">
+    <div class="container">
+      <header class="page__header">
+        <div class="breadcrumb">Home &gt; Dados</div>
+        <h1 class="h1">Base de dados</h1>
+        <p class="p">Insira ou visualize os dados que serão usados nas análises.</p>
+      </header>
+
+      <section class="grid grid--2" aria-label="Entrada de dados">
+        <article class="card">
+          <h2 class="h2">Inserir dados</h2>
+          <p class="p" style="margin-top:6px;">Cole números separados por vírgula ou quebra de linha (placeholder).</p>
+
+          <div class="field" style="margin-top:16px;">
+            <label for="dados-raw">Dados</label>
+            <textarea class="textarea" id="dados-raw" placeholder="Ex: 10, 12, 15, 9, 8"></textarea>
+          </div>
+
+          <div style="display:flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+            <button class="btn btn--primary" type="button">Salvar</button>
+            <button class="btn" type="button">Limpar</button>
+          </div>
+
+          <p class="p" style="margin-top:12px; font-size:14px;">
+            Acessibilidade: os botões têm foco visível e o campo tem label associado.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2 class="h2">Resumo</h2>
+          <p class="p" style="margin-top:6px;">Exemplo de status do dataset (placeholder).</p>
+
+          <div class="grid" style="margin-top:16px;">
+            <div class="card" style="box-shadow:none;">
+              <div class="card__meta">Registros</div>
+              <div class="card__value">30</div>
+              <div class="card__desc">Última atualização: hoje</div>
+            </div>
+            <div class="card" style="box-shadow:none;">
+              <div class="card__meta">Colunas</div>
+              <div class="card__value">1</div>
+              <div class="card__desc">Tipo: numérico</div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section style="margin-top:24px;" aria-label="Tabela de dados">
+        <div class="table-wrap">
+          <table>
+            <caption>Tabela de dados (placeholder)</caption>
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Tag</th>
+                <th scope="col">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td><td>10</td><td>Exemplo</td>
+                <td><a href="#" aria-label="Editar linha 1 (placeholder)">Editar</a></td>
+              </tr>
+              <tr>
+                <td>2</td><td>12</td><td>Exemplo</td>
+                <td><a href="#" aria-label="Editar linha 2 (placeholder)">Editar</a></td>
+              </tr>
+              <tr>
+                <td>3</td><td>15</td><td>Exemplo</td>
+                <td><a href="#" aria-label="Editar linha 3 (placeholder)">Editar</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+          <span class="p" style="font-size:14px;">Mostrando 1–3 de 30</span>
+          <div style="display:flex; gap: 10px;">
+            <button class="btn" type="button">Anterior</button>
+            <button class="btn" type="button">Próximo</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <span>© DataInsight</span>
+      <span>Use a aba Análises para calcular as métricas automaticamente.</span>
+    </div>
+  </footer>
+</body>
+</html>

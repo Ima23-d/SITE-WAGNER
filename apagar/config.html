@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DataInsight • Configurações</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topbar" role="banner">
+    <div class="container topbar__inner">
+      <a class="brand" href="home.html">
+        <span class="brand__mark" aria-hidden="true"></span>
+        DataInsight
+      </a>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="home.html">Home</a>
+        <a href="dados.html">Dados</a>
+        <a href="analises.html">Análises</a>
+        <a href="graficos.html">Gráficos</a>
+        <a href="relatorios.html">Relatórios</a>
+        <a href="config.html" aria-current="page">Configurações</a>
+      </nav>
+
+      <div class="actions">
+        <button class="btn btn--icon" type="button" aria-label="Perfil (placeholder)">👤</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" class="page" role="main">
+    <div class="container">
+      <header class="page__header">
+        <div class="breadcrumb">Home &gt; Configurações</div>
+        <h1 class="h1">Acessibilidade e preferências</h1>
+        <p class="p">Ajuste o site para melhor leitura e navegação.</p>
+      </header>
+
+      <section class="grid grid--2" aria-label="Preferências">
+        <article class="card">
+          <h2 class="h2">Tema</h2>
+          <p class="p" style="margin-top:6px;">Opções de tema (placeholder, sem JS).</p>
+
+          <div style="display:flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+            <button class="btn btn--primary" type="button" aria-label="Ativar tema claro (placeholder)">Tema claro</button>
+            <button class="btn" type="button" aria-label="Ativar tema escuro (placeholder)">Tema escuro</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2 class="h2">Leitura</h2>
+          <p class="p" style="margin-top:6px;">Controle de fonte e contraste (placeholder).</p>
+
+          <div style="display:flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+            <button class="btn" type="button" aria-label="Aumentar fonte (placeholder)">A+</button>
+            <button class="btn" type="button" aria-label="Diminuir fonte (placeholder)">A-</button>
+            <button class="btn" type="button" aria-label="Ativar alto contraste (placeholder)">Alto contraste</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2 class="h2">Movimento</h2>
+          <p class="p" style="margin-top:6px;">Reduza animações para conforto visual.</p>
+
+          <label style="display:flex; align-items:center; gap: 10px; margin-top: 16px; color: var(--muted); font-weight: 600;">
+            <input type="checkbox" />
+            Reduzir animações (placeholder)
+          </label>
+        </article>
+
+        <article class="card">
+          <h2 class="h2">Leitura por voz</h2>
+          <p class="p" style="margin-top:6px;">Recurso de voz (placeholder, futuro JS).</p>
+
+          <div style="display:flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+            <button class="btn btn--primary" type="button" aria-label="Iniciar leitura por voz (placeholder)">Iniciar</button>
+            <button class="btn" type="button" aria-label="Parar leitura por voz (placeholder)">Parar</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="card" aria-label="Salvar" style="margin-top:24px;">
+        <div style="display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items:center;">
+          <p class="p">Depois a gente salva isso no localStorage com JS.</p>
+          <button class="btn btn--primary" type="button">Salvar alterações</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <span>© DataInsight</span>
+      <span>Configurações focadas em acessibilidade (AA).</span>
+    </div>
+  </footer>
+</body>
+</html>

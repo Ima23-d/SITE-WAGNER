@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DataInsight • Login</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topbar" role="banner">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html" aria-label="DataInsight - Página inicial">
+        <span class="brand__mark" aria-hidden="true"></span>
+        DataInsight
+      </a>
+
+      <div class="actions">
+        <button class="btn btn--icon" type="button" aria-label="Alternar tema (placeholder)">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" class="auth" role="main">
+    <section class="card auth__card" aria-labelledby="titulo-login">
+      <h1 id="titulo-login" class="auth__title">Entrar</h1>
+      <p class="auth__subtitle">Analise seus dados de forma simples e acessível.</p>
+
+      <form action="home.html" method="get" style="margin-top: 24px; display: grid; gap: 16px;">
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+
+        <div class="field">
+          <label for="senha">Senha</label>
+          <input class="input" id="senha" name="senha" type="password" autocomplete="current-password" required />
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; gap: 12px; flex-wrap: wrap;">
+          <label style="display:flex; align-items:center; gap:10px; color: var(--muted); font-weight:600;">
+            <input type="checkbox" name="lembrar" />
+            Lembrar de mim
+          </label>
+          <span aria-live="polite" style="color: var(--muted); font-size: 14px;"> </span>
+        </div>
+
+        <button class="btn btn--primary" type="submit">Entrar</button>
+
+        <div class="auth__links">
+          <a href="#" aria-label="Recuperar senha (placeholder)">Esqueci a senha</a>
+          <a href="cadastro.html">Criar conta</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <span>© DataInsight</span>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="btn btn--ghost" type="button" aria-label="Aumentar fonte (placeholder)">A+</button>
+        <button class="btn btn--ghost" type="button" aria-label="Diminuir fonte (placeholder)">A-</button>
+        <button class="btn btn--ghost" type="button" aria-label="Alto contraste (placeholder)">Alto contraste</button>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
