@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DataInsight • Relatórios</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topbar" role="banner">
+    <div class="container topbar__inner">
+      <a class="brand" href="home.html">
+        <span class="brand__mark" aria-hidden="true">
+          <i class="fa-solid fa-chart-column"></i>
+        </span>
+        DataInsight
+      </a>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="home.html">Home</a>
+        <a href="dados.html">Dados</a>
+        <a href="analises.html">Análises</a>
+        <a href="graficos.html">Gráficos</a>
+        <a href="relatorios.html" aria-current="page">Relatórios</a>
+        <a href="config.html">Configurações</a>
+      </nav>
+
+      <div class="actions">
+        <button class="btn btn--icon" type="button" aria-label="Perfil (placeholder)">👤</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" class="page" role="main">
+    <div class="container">
+      <header class="page__header">
+        <div class="breadcrumb">Home &gt; Relatórios</div>
+        <h1 class="h1">Relatórios</h1>
+        <p class="p">Gere um resumo para imprimir ou exportar (placeholder).</p>
+      </header>
+
+      <section class="card" aria-label="Ações de relatório">
+        <div style="display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items:center;">
+          <p class="p">No MVP, você pode usar “Imprimir” e depois evoluir para PDF.</p>
+          <div style="display:flex; gap: 12px; flex-wrap: wrap;">
+            <button class="btn btn--primary" type="button">Gerar PDF</button>
+            <button class="btn" type="button" onclick="window.print()">Imprimir</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-label="Prévia do relatório" style="margin-top:24px;">
+        <h2 class="h2">Prévia</h2>
+        <p class="p" style="margin-top:6px;">Resumo estatístico + gráfico + insights (placeholder).</p>
+
+        <div class="grid grid--2" style="margin-top:16px;">
+          <article class="card" style="box-shadow:none;">
+            <h3 class="h3">Resumo</h3>
+            <p class="p" style="margin-top:8px;">Média: 12,5 • Mediana: 10 • Moda: 8 • DP: 3,2</p>
+            <p class="p" style="margin-top:8px;">Insight: “Os valores maiores estão puxando a média para cima.”</p>
+          </article>
+
+          <article class="card" style="box-shadow:none;">
+            <h3 class="h3">Gráfico</h3>
+            <div class="chart" role="img" aria-label="Área reservada para gráfico no relatório">Área do gráfico</div>
+            <p class="p" style="margin-top:10px;">Descrição do gráfico para acessibilidade.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <span>© DataInsight</span>
+      <span>Depois você pode gerar PDF com biblioteca JS (ex: jsPDF).</span>
+    </div>
+  </footer>
+
+  <!-- Painel flutuante de acessibilidade (AAA-friendly) -->
+  <div class="a11y-fab" aria-label="Ferramentas de acessibilidade">
+    <div id="a11yPanel" class="a11y-panel" role="dialog" aria-modal="false" aria-labelledby="a11yTitle">
+      <h2 id="a11yTitle" class="a11y-title">Acessibilidade</h2>
+  
+      <div class="a11y-actions">
+        <button class="btn btn--ghost" type="button" id="btnAumentar">Aumentar fonte</button>
+        <button class="btn btn--ghost" type="button" id="btnDiminuir">Diminuir fonte</button>
+        <button class="btn btn--ghost" type="button" id="btnLer">Ler página (voz)</button>
+        <button class="btn btn--ghost" type="button" id="btnParar">Parar leitura</button>
+      </div>
+  
+      <p class="helper" style="margin:10px 0 0;">
+        Dica: use TAB para navegar e Enter/Espaço para ativar botões.
+      </p>
+    </div>
+  
+    <button id="a11yToggle" class="a11y-toggle" type="button" aria-expanded="false" aria-controls="a11yPanel">
+      ♿
+      <span class="sr-only">Abrir menu de acessibilidade</span>
+    </button>
+  </div>
+  
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+  <script src="acessibilidade/acessibilidade.js"></script>
+</body>
+</html>

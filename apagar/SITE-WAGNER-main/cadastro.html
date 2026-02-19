@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DataInsight • Cadastro</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+   <!-- Skip link (teclado) -->
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topbar" role="banner">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html" aria-label="DataInsight - Voltar ao login">
+        <span class="brand__mark" aria-hidden="true">
+          <i class="fa-solid fa-chart-column"></i>
+        </span>
+        DataInsight
+      </a>
+      <div class="actions">
+        <a class="btn btn--ghost" href="index.html">Voltar</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" class="auth" role="main" tabindex="-1">
+    <section class="auth__card" aria-labelledby="titulo-cadastro">
+      <h1 id="titulo-cadastro" class="auth__title">Criar conta</h1>
+      <p class="auth__subtitle">Crie sua conta para salvar preferências e relatórios.</p>
+
+      <!-- Região de mensagens acessível (screen readers) -->
+      <div id="msg" class="alert" role="status" aria-live="polite" aria-hidden="true"></div>
+
+      <form id="formCadastro" action="home.html" method="get" style="margin-top: 24px; display:grid; gap: 16px;">
+        <div class="field">
+          <label for="nome">Nome</label>
+          <input class="input" id="nome" name="nome" type="text" autocomplete="name" required />
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+
+        <div class="field">
+          <label for="senha">Senha</label>
+          <input class="input" id="senha" name="senha" type="password" autocomplete="new-password" required
+                 aria-describedby="dica-senha" />
+          <div id="dica-senha" class="helper">
+            Dica: use no mínimo 8 caracteres (placeholder).
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="confirmar">Confirmar senha</label>
+          <input class="input" id="confirmar" name="confirmar" type="password" autocomplete="new-password" required />
+        </div>
+
+        <label class="row">
+          <input id="termos" type="checkbox" required />
+          <span>Aceito os termos e a política de privacidade (placeholder).</span>
+        </label>
+
+        <button class="btn btn--primary" type="submit">Criar conta</button>
+
+        <p class="helper" style="font-size:14px; margin:0;">
+          Já tem conta? <a href="index.html">Entrar</a>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <span>© DataInsight</span>
+      <span>Interface acessível e responsiva.</span>
+    </div>
+  </footer>
+
+  <!-- Painel flutuante de acessibilidade (AAA-friendly) -->
+  <div class="a11y-fab" aria-label="Ferramentas de acessibilidade">
+    <div id="a11yPanel" class="a11y-panel" role="dialog" aria-modal="false" aria-labelledby="a11yTitle">
+      <h2 id="a11yTitle" class="a11y-title">Acessibilidade</h2>
+
+      <div class="a11y-actions">
+        <button class="btn btn--ghost" type="button" id="btnAumentar">Aumentar fonte</button>
+        <button class="btn btn--ghost" type="button" id="btnDiminuir">Diminuir fonte</button>
+        <button class="btn btn--ghost" type="button" id="btnContraste">Alto contraste</button>
+        <button class="btn btn--ghost" type="button" id="btnLer">Ler página (voz)</button>
+        <button class="btn btn--ghost" type="button" id="btnParar">Parar leitura</button>
+      </div>
+
+      <p class="helper" style="margin:10px 0 0;">
+        Dica: use TAB para navegar e Enter/Espaço para ativar botões.
+      </p>
+    </div>
+
+    <button id="a11yToggle" class="a11y-toggle" type="button" aria-expanded="false" aria-controls="a11yPanel">
+      ♿
+      <span class="sr-only">Abrir menu de acessibilidade</span>
+    </button>
+  </div>
+
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <script src="acessibilidade/acessibilidade.js"></script>
+  <script>
+    const form = document.getElementById("formCadastro");
+    form.addEventListener("submit", function (e) {
+      clearMessage();
+
+      const senha = document.getElementById("senha").value;
+      const confirmar = document.getElementById("confirmar").value;
+
+      if (senha.length < 8) {
+        e.preventDefault();
+        showMessage("A senha deve ter pelo menos 8 caracteres.");
+        document.getElementById("senha").focus();
+        return;
+      }
+
+      if (senha !== confirmar) {
+        e.preventDefault();
+        showMessage("As senhas não coincidem. Verifique e tente novamente.");
+        document.getElementById("confirmar").focus();
+        return;
+      }
+    });
+
+  </script>
+</body>
+</html>

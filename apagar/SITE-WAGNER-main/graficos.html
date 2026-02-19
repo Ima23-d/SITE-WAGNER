@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DataInsight • Gráficos</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* Extra só para esta página (mantém o design do documento) */
+    .legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .legend__item{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .legend__swatch{
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+    .kpis-inline{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .kpi-badge{
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: var(--shadow);
+    }
+    .chart-wrap{
+      margin-top: 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: var(--s-2);
+    }
+    .chart-title{
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .chart-title .p{ max-width: 70ch; }
+    .svg-chart{
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 12px;
+    }
+    .sr-only{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
+    }
+    .note{
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topbar" role="banner">
+    <div class="container topbar__inner">
+      <a class="brand" href="home.html" aria-label="DataInsight - Home">
+            <span class="brand__mark" aria-hidden="true">
+              <i class="fa-solid fa-chart-column"></i>
+            </span>
+        DataInsight
+      </a>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="home.html">Home</a>
+        <a href="dados.html">Dados</a>
+        <a href="analises.html">Análises</a>
+        <a href="graficos.html" aria-current="page">Gráficos</a>
+        <a href="relatorios.html">Relatórios</a>
+        <a href="config.html">Configurações</a>
+      </nav>
+
+      <div class="actions">
+        <button class="btn btn--icon" type="button" aria-label="Perfil (placeholder)">👤</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" class="page" role="main">
+    <div class="container">
+      <header class="page__header">
+        <div class="breadcrumb">Home &gt; Gráficos</div>
+        <h1 class="h1">Gráficos</h1>
+        <p class="p">Visualizações com dados simulados (MVP sem JavaScript).</p>
+      </header>
+
+      <!-- Filtros (UI pronta) -->
+      <section class="card" aria-label="Filtros">
+        <h2 class="h2">Filtros</h2>
+
+        <div class="grid grid--3" style="margin-top:16px;">
+          <div class="field">
+            <label for="tipo">Tipo de gráfico</label>
+            <select class="select" id="tipo">
+              <option selected>Barras + Linha (comparativo)</option>
+              <option>Histograma</option>
+              <option>Linha</option>
+              <option>Barras</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="periodo">Período</label>
+            <select class="select" id="periodo">
+              <option>Todos</option>
+              <option selected>Últimos 6 meses (simulado)</option>
+              <option>Últimos 30 dias</option>
+              <option>Personalizado</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="categoria">Categoria</label>
+            <select class="select" id="categoria">
+              <option selected>Geral</option>
+              <option>Exemplo A</option>
+              <option>Exemplo B</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+          <button class="btn btn--primary" type="button">Aplicar</button>
+          <button class="btn" type="button">Limpar</button>
+        </div>
+
+        <div class="kpis-inline" aria-label="Resumo rápido (simulado)">
+          <span class="kpi-badge">Média: 12,5</span>
+          <span class="kpi-badge">Mediana: 10</span>
+          <span class="kpi-badge">DP: 3,2</span>
+          <span class="kpi-badge">Tendência: ↑</span>
+        </div>
+      </section>
+
+      <!-- Gráfico real (SVG) -->
+      <section class="chart-wrap" aria-labelledby="titulo-grafico" style="margin-top:24px;">
+        <div class="chart-title">
+          <div>
+            <h2 id="titulo-grafico" class="h2">Comparativo mensal</h2>
+            <p class="p" id="desc-grafico">
+              Barras = valores mensais (simulado). Linha = média móvel simples (simulada).
+              Abaixo do gráfico, há uma descrição textual para acessibilidade.
+            </p>
+          </div>
+          <div class="legend" aria-label="Legenda do gráfico">
+            <div class="legend__item">
+              <span class="legend__swatch" style="background: var(--primary); border-color: var(--primary);" aria-hidden="true"></span>
+              <span>Barras (valores)</span>
+            </div>
+            <div class="legend__item">
+              <span class="legend__swatch" style="background: transparent; border-color: var(--text);" aria-hidden="true"></span>
+              <span>Linha (média móvel)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Acessibilidade: role img + title/desc -->
+        <svg
+          class="svg-chart"
+          viewBox="0 0 920 420"
+          role="img"
+          aria-labelledby="svg-title svg-desc"
+          tabindex="0"
+        >
+          <title id="svg-title">Gráfico de barras com linha de tendência dos últimos 6 meses</title>
+          <desc id="svg-desc">
+            Valores simulados por mês: Set 8, Out 10, Nov 14, Dez 12, Jan 16, Fev 15.
+            A linha representa uma média móvel simples que sobe até janeiro e estabiliza em fevereiro.
+          </desc>
+
+          <!-- Fundo -->
+          <rect x="0" y="0" width="920" height="420" fill="transparent"></rect>
+
+          <!-- Área do plot -->
+          <rect x="70" y="30" width="820" height="310" fill="transparent" stroke="var(--border)" stroke-width="1"></rect>
+
+          <!-- Linhas de grade (Y) -->
+          <!-- 0..20 (simulado), marcas em 5 -->
+          <g stroke="var(--border)" stroke-width="1">
+            <line x1="70" y1="340" x2="890" y2="340"></line>
+            <line x1="70" y1="262.5" x2="890" y2="262.5"></line>
+            <line x1="70" y1="185" x2="890" y2="185"></line>
+            <line x1="70" y1="107.5" x2="890" y2="107.5"></line>
+            <line x1="70" y1="30" x2="890" y2="30"></line>
+          </g>
+
+          <!-- Labels Y -->
+          <g fill="var(--muted)" font-family="Inter, sans-serif" font-size="12" font-weight="600">
+            <text x="40" y="344">0</text>
+            <text x="36" y="266.5">5</text>
+            <text x="32" y="189">10</text>
+            <text x="32" y="111.5">15</text>
+            <text x="32" y="34">20</text>
+          </g>
+
+          <!-- Barras (valores: 8,10,14,12,16,15) escala 0..20 -->
+          <!-- Plot y: 30..340 (310px). Valor->altura = (valor/20)*310 -->
+          <!-- X positions -->
+          <g aria-label="Barras de valores mensais">
+            <!-- Set (8): h=124, y=216 -->
+            <rect x="140" y="216" width="70" height="124" rx="8" fill="var(--primary)"></rect>
+            <!-- Out (10): h=155, y=185 -->
+            <rect x="260" y="185" width="70" height="155" rx="8" fill="var(--primary)"></rect>
+            <!-- Nov (14): h=217, y=123 -->
+            <rect x="380" y="123" width="70" height="217" rx="8" fill="var(--primary)"></rect>
+            <!-- Dez (12): h=186, y=154 -->
+            <rect x="500" y="154" width="70" height="186" rx="8" fill="var(--primary)"></rect>
+            <!-- Jan (16): h=248, y=92 -->
+            <rect x="620" y="92" width="70" height="248" rx="8" fill="var(--primary)"></rect>
+            <!-- Fev (15): h=232.5, y=107.5 -->
+            <rect x="740" y="107.5" width="70" height="232.5" rx="8" fill="var(--primary)"></rect>
+          </g>
+
+          <!-- Linha (média móvel simples simulada): 8,9,12,12,14,14.3 -->
+          <!-- Converter para y: y = 340 - (valor/20)*310 -->
+          <!-- Points:
+              8 -> y=216
+              9 -> y=200.5
+              12 -> y=154
+              12 -> y=154
+              14 -> y=123
+              14.3 -> y~118.35
+          -->
+          <g aria-label="Linha de tendência (média móvel)" fill="none" stroke="var(--text)" stroke-width="3">
+            <path d="M 175 216
+                     L 295 200.5
+                     L 415 154
+                     L 535 154
+                     L 655 123
+                     L 775 118.35"></path>
+          </g>
+
+          <!-- Pontos da linha -->
+          <g fill="var(--card)" stroke="var(--text)" stroke-width="2" aria-hidden="true">
+            <circle cx="175" cy="216" r="6"></circle>
+            <circle cx="295" cy="200.5" r="6"></circle>
+            <circle cx="415" cy="154" r="6"></circle>
+            <circle cx="535" cy="154" r="6"></circle>
+            <circle cx="655" cy="123" r="6"></circle>
+            <circle cx="775" cy="118.35" r="6"></circle>
+          </g>
+
+          <!-- Labels X -->
+          <g fill="var(--muted)" font-family="Inter, sans-serif" font-size="12" font-weight="700">
+            <text x="152" y="372">Set</text>
+            <text x="272" y="372">Out</text>
+            <text x="392" y="372">Nov</text>
+            <text x="512" y="372">Dez</text>
+            <text x="635" y="372">Jan</text>
+            <text x="755" y="372">Fev</text>
+          </g>
+
+          <!-- Notas dentro do SVG (opcional) -->
+          <g fill="var(--muted)" font-family="Inter, sans-serif" font-size="12" font-weight="600">
+            <text x="70" y="408">Fonte: dados simulados (MVP)</text>
+          </g>
+        </svg>
+
+        <!-- Descrição acessível (fora do SVG também, para leitura fácil) -->
+        <h3 class="h3" style="margin-top:16px;">Descrição do gráfico</h3>
+        <p class="p" style="margin-top:8px;">
+          Valores simulados por mês: <strong>Set = 8</strong>, <strong>Out = 10</strong>, <strong>Nov = 14</strong>,
+          <strong>Dez = 12</strong>, <strong>Jan = 16</strong>, <strong>Fev = 15</strong>.
+        </p>
+        <p class="p" style="margin-top:8px;">
+          Interpretação simples: houve crescimento até <strong>janeiro</strong>, e em <strong>fevereiro</strong> os valores
+          ficaram próximos do pico, indicando estabilização.
+        </p>
+        <p class="note">
+          Acessibilidade: o gráfico tem título/descrição (para leitor de tela) e também texto explicando os principais pontos.
+        </p>
+      </section>
+
+      <!-- Bloco de boas práticas -->
+      <section class="card" aria-label="Boas práticas" style="margin-top:24px;">
+        <h2 class="h2">Boas práticas de acessibilidade</h2>
+        <ul style="margin: 12px 0 0; color: var(--muted); line-height: 1.7;">
+          <li>Não usar apenas cor para indicar subida/queda (sempre texto/ícones também).</li>
+          <li>Fornecer descrição textual do gráfico com principais números e tendências.</li>
+          <li>Garantir foco visível: você pode apertar Tab e focar o gráfico (SVG tem <code>tabindex="0"</code>).</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <span>© DataInsight</span>
+      <span>Próximo passo: ligar os filtros e gerar gráficos com Chart.js (JS).</span>
+    </div>
+  </footer>
+
+  <!-- Painel flutuante de acessibilidade (AAA-friendly) -->
+  <div class="a11y-fab" aria-label="Ferramentas de acessibilidade">
+    <div id="a11yPanel" class="a11y-panel" role="dialog" aria-modal="false" aria-labelledby="a11yTitle">
+      <h2 id="a11yTitle" class="a11y-title">Acessibilidade</h2>
+  
+      <div class="a11y-actions">
+        <button class="btn btn--ghost" type="button" id="btnAumentar">Aumentar fonte</button>
+        <button class="btn btn--ghost" type="button" id="btnDiminuir">Diminuir fonte</button>
+        <button class="btn btn--ghost" type="button" id="btnLer">Ler página (voz)</button>
+        <button class="btn btn--ghost" type="button" id="btnParar">Parar leitura</button>
+      </div>
+  
+      <p class="helper" style="margin:10px 0 0;">
+        Dica: use TAB para navegar e Enter/Espaço para ativar botões.
+      </p>
+    </div>
+  
+    <button id="a11yToggle" class="a11y-toggle" type="button" aria-expanded="false" aria-controls="a11yPanel">
+      ♿
+      <span class="sr-only">Abrir menu de acessibilidade</span>
+    </button>
+  </div>
+  
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+  <script src="acessibilidade/acessibilidade.js"></script>
+</body>
+</html>
